@@ -1078,7 +1078,7 @@ checkIP() {
     fi
     localIP=$(curl -s -m 2 "${checkDomain}/ip")
 
-    handleNginx stop
+    #handleNginx stop
     if [[ -z ${localIP} ]] || ! echo "${localIP}" | sed '1{s/[^(]*(//;s/).*//;q}' | grep -q '\.' && ! echo "${localIP}" | sed '1{s/[^(]*(//;s/).*//;q}' | grep -q ':'; then
         echoContent red "\n ---> 未检测到当前域名的ip"
         echoContent skyBlue " ---> 请依次进行下列检查"
